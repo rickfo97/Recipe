@@ -7,9 +7,7 @@
  */
 class Chef extends Controller
 {
-
     public function index(){
         echo 'chef/index';
     }
-
 }

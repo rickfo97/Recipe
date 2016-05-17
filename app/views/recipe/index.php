@@ -11,7 +11,7 @@ foreach ($data['list'] as $recipe) {
                 <h4><?=$recipe['name']?></h4>
             </div>
             <div class="col-sm-12 recipe-chef-name">
-                <?php if(isset($recipe['chef_name'])){ echo '<a href="/chef/profile/' . $recipe['chef_name'] . '"><h5>' . $recipe['chef_name'] . '</h5></a>';}else echo "<h5>" . $lang['No_Chef'] . "</h5>";?>
+                <?php if(isset($recipe['chef_name'])){ echo '<a href="/chef/profile/' . str_replace(' ', '_', $recipe['chef_name']) . '"><h5>' . $recipe['chef_name'] . '</h5></a>';}else echo "<h5>" . $lang['No_Chef'] . "</h5>";?>
             </div>
             <div class="col-sm-6">
                 <span class="glyphicon glyphicon-time"> </span><?=$recipe['time'];?>

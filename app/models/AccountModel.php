@@ -44,8 +44,8 @@ class AccountModel extends Model{
     }
 
     public function run(){
-        $stmt = $this->db->prepare("SELECT id, password FROM User WHERE email = :email");
-        $stmt->execute(array(':email' => $_POST['email']));
+        $stmt = $this->db->prepare("SELECT id, password FROM User WHERE username = :user");
+        $stmt->execute(array(':user' => $_POST['username']));
         if($user = $stmt->fetch()){
             if(password_verify($_POST['password'], $user['password'])){
                 return $user['id'];

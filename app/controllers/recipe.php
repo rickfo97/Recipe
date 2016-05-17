@@ -40,4 +40,24 @@ class recipe extends Controller{
         $this->view('recipe/index');
     }
 
+    public function upload(){
+        if(isset($_SESSION['user'])){
+            $this->menu();
+            $this->view('recipe/upload');
+        }else{
+            $this->index();
+        }
+    }
+
+    public function create(){
+        if (isset($_SESSION['user'])){
+            if($id = $this->model('Recipe')->create()){
+                $this->open($id);
+            }else{
+                $this->upload();
+            }
+        }else{
+            $this->index();
+        }
+    }
 }
